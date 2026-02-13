@@ -1,0 +1,970 @@
+[
+    {
+        "group_number": 1,
+        "tickets": [
+            {
+                "display_text": "Ticket Summary\n--------------\nTicket ID: TICK-0001\nDate Created: 2025-03-02\nDepartment: Operations\nAssigned To: Agent-18\nPriority: Low\nStatus: In Progress\n\nIssue Description:\nlaptop won't turn on even when plugged in this started after the recent system update.",
+                "embedding_text": "laptop won't turn on even when plugged in this started after the recent system update."
+            },
+            {
+                "display_text": "Ticket Summary\n--------------\nTicket ID: TICK-0030\nDate Created: 2025-03-12\nDepartment: Customer Support\nAssigned To: Agent-08\nPriority: Low\nStatus: Open\n\nIssue Description:\nlaptop won't turn on even when plugged in",
+                "embedding_text": "laptop won't turn on even when plugged in"
+            },
+            {
+                "display_text": "Ticket Summary\n--------------\nTicket ID: TICK-0076\nDate Created: 2025-03-01\nDepartment: Finance\nAssigned To: Agent-05\nPriority: Medium\nStatus: Open\n\nIssue Description:\nlaptop won't turn on even when plugged in this started after the recent system update.",
+                "embedding_text": "laptop won't turn on even when plugged in this started after the recent system update."
+            },
+            {
+                "display_text": "Ticket Summary\n--------------\nTicket ID: TICK-0080\nDate Created: 2025-03-08\nDepartment: Sales\nAssigned To: Agent-11\nPriority: Low\nStatus: Resolved\n\nIssue Description:\nlaptop won't turn on even when plugged in",
+                "embedding_text": "laptop won't turn on even when plugged in"
+            }
+        ],
+        "analysis": {
+            "group_label": "Laptop Power Failure Post-Update",
+            "summary": "Multiple incidents report laptops failing to power on even when plugged in, with some explicitly linking the issue to a recent system update.",
+            "common_patterns": [
+                "Laptops do not power on despite being connected to a power source.",
+                "Issue onset coincides with or follows a recent system update in some cases."
+            ],
+            "hypotheses": [
+                "The recent system update may have introduced a firmware or driver issue affecting power management.",
+                "There could be a hardware fault coincidentally occurring after the update, but this is less likely given multiple reports.",
+                "Power adapter or battery failures are possible but less supported given the update correlation."
+            ],
+            "recommended_checks": [
+                "Verify if the affected laptops share the same system update version.",
+                "Check for known issues or patches related to power management in the recent update.",
+                "Test power adapters and batteries to rule out hardware faults.",
+                "Attempt to power on laptops using alternative methods such as removing the battery or performing a hard reset.",
+                "Review system logs for errors related to power or boot processes post-update."
+            ]
+        }
+    },
+    {
+        "group_number": 2,
+        "tickets": [
+            {
+                "display_text": "Ticket Summary\n--------------\nTicket ID: TICK-0002\nDate Created: 2025-02-25\nDepartment: Sales\nAssigned To: Agent-20\nPriority: Medium\nStatus: In Progress\n\nIssue Description:\nscanner not recognized by computer after os update",
+                "embedding_text": "scanner not recognized by computer after os update"
+            },
+            {
+                "display_text": "Ticket Summary\n--------------\nTicket ID: TICK-0008\nDate Created: 2025-03-15\nDepartment: HR\nAssigned To: Agent-12\nPriority: Medium\nStatus: Resolved\n\nIssue Description:\nscanner not recognized by computer after os update",
+                "embedding_text": "scanner not recognized by computer after os update"
+            },
+            {
+                "display_text": "Ticket Summary\n--------------\nTicket ID: TICK-0054\nDate Created: 2025-03-03\nDepartment: IT\nAssigned To: Agent-17\nPriority: Critical\nStatus: Open\n\nIssue Description:\nscanner not recognized by computer after os update this started after the recent system update.",
+                "embedding_text": "scanner not recognized by computer after os update this started after the recent system update."
+            }
+        ],
+        "analysis": {
+            "group_label": "Scanner Not Recognized After OS Update",
+            "summary": "Multiple incidents report that scanners are not recognized by computers following a recent operating system update.",
+            "common_patterns": [
+                "Scanner devices fail to be detected by the computer.",
+                "Issue onset coincides with a recent OS update.",
+                "Problem consistently reported across multiple incidents."
+            ],
+            "hypotheses": [
+                "The OS update may have introduced driver incompatibilities or removed existing scanner drivers.",
+                "Security or permission changes in the OS update could be blocking scanner device recognition.",
+                "The update might have altered USB or device management settings affecting scanner detection."
+            ],
+            "recommended_checks": [
+                "Verify if scanner drivers are compatible with the new OS version and reinstall or update drivers as needed.",
+                "Check device manager or system logs for errors related to scanner hardware recognition.",
+                "Review recent OS update release notes for known issues affecting scanner devices.",
+                "Test scanner connectivity on a system without the recent update to confirm correlation.",
+                "Check USB port functionality and permissions post-update."
+            ]
+        }
+    },
+    {
+        "group_number": 3,
+        "tickets": [
+            {
+                "display_text": "Ticket Summary\n--------------\nTicket ID: TICK-0003\nDate Created: 2025-03-12\nDepartment: Marketing\nAssigned To: Agent-19\nPriority: Medium\nStatus: Closed\n\nIssue Description:\nunable to access network drives after recent update this issue occurred once before last month.",
+                "embedding_text": "unable to access network drives after recent update this issue occurred once before last month."
+            },
+            {
+                "display_text": "Ticket Summary\n--------------\nTicket ID: TICK-0011\nDate Created: 2025-03-05\nDepartment: IT\nAssigned To: Agent-07\nPriority: High\nStatus: Closed\n\nIssue Description:\nunable to access network drives after recent update i need this resolved by end of day if possible.",
+                "embedding_text": "unable to access network drives after recent update i need this resolved by end of day if possible."
+            }
+        ],
+        "analysis": {
+            "group_label": "Network Drive Access Issues Post-Update",
+            "summary": "Users are experiencing inability to access network drives following a recent update. This issue has occurred at least twice, including once before last month.",
+            "common_patterns": [
+                "Access to network drives is disrupted after a recent system update.",
+                "The problem is recurring, having happened previously.",
+                "Users express urgency for resolution."
+            ],
+            "hypotheses": [
+                "The recent update may have altered network drive permissions or configurations.",
+                "There could be compatibility issues introduced by the update affecting network drive connectivity.",
+                "Network authentication or mapping scripts might have been impacted by the update."
+            ],
+            "recommended_checks": [
+                "Review the changes introduced in the recent update related to network drive access.",
+                "Verify network drive permissions and user access rights post-update.",
+                "Check for errors in network drive mapping scripts or login scripts.",
+                "Examine event logs on affected client machines and file servers for related errors.",
+                "Confirm network connectivity and authentication services are functioning correctly."
+            ]
+        }
+    },
+    {
+        "group_number": 4,
+        "tickets": [
+            {
+                "display_text": "Ticket Summary\n--------------\nTicket ID: TICK-0004\nDate Created: 2025-03-17\nDepartment: HR\nAssigned To: Agent-05\nPriority: High\nStatus: Closed\n\nIssue Description:\nnot receiving external emails since yesterday this started after the recent system update.",
+                "embedding_text": "not receiving external emails since yesterday this started after the recent system update."
+            },
+            {
+                "display_text": "Ticket Summary\n--------------\nTicket ID: TICK-0006\nDate Created: 2025-02-26\nDepartment: Sales\nAssigned To: Agent-10\nPriority: Low\nStatus: Closed\n\nIssue Description:\nnot receiving external emails since yesterday this is urgent as it's blocking critical work.",
+                "embedding_text": "not receiving external emails since yesterday this is urgent as it's blocking critical work."
+            },
+            {
+                "display_text": "Ticket Summary\n--------------\nTicket ID: TICK-0092\nDate Created: 2025-03-03\nDepartment: Sales\nAssigned To: Agent-10\nPriority: Low\nStatus: Open\n\nIssue Description:\nnot receiving external emails since yesterday this started after the recent system update.",
+                "embedding_text": "not receiving external emails since yesterday this started after the recent system update."
+            }
+        ],
+        "analysis": {
+            "group_label": "External Email Delivery Failure Post-System Update",
+            "summary": "Multiple users report not receiving external emails since yesterday, coinciding with a recent system update. The issue is impacting critical work.",
+            "common_patterns": [
+                "No external emails received since a specific time (yesterday).",
+                "Issue onset aligns with a recent system update.",
+                "Urgency due to business impact is noted."
+            ],
+            "hypotheses": [
+                "The recent system update introduced a configuration or software change that is blocking or misrouting external emails.",
+                "Email filtering or security settings may have been altered during the update, causing external emails to be rejected or quarantined.",
+                "There may be connectivity or integration issues between the email system and external mail servers post-update."
+            ],
+            "recommended_checks": [
+                "Review the recent system update details and rollback changes if necessary.",
+                "Check email server logs for errors or blocks related to external email delivery since the update.",
+                "Verify email filtering, spam, and security settings to ensure external emails are not being blocked or quarantined.",
+                "Test connectivity between the email system and external mail servers.",
+                "Confirm that DNS and MX records are intact and unchanged.",
+                "Engage with the update deployment team to identify any known issues."
+            ]
+        }
+    },
+    {
+        "group_number": 5,
+        "tickets": [
+            {
+                "display_text": "Ticket Summary\n--------------\nTicket ID: TICK-0005\nDate Created: 2025-03-07\nDepartment: Customer Support\nAssigned To: Agent-12\nPriority: High\nStatus: Open\n\nIssue Description:\nunable to access shared mailbox with current credentials",
+                "embedding_text": "unable to access shared mailbox with current credentials"
+            },
+            {
+                "display_text": "Ticket Summary\n--------------\nTicket ID: TICK-0055\nDate Created: 2025-03-16\nDepartment: Operations\nAssigned To: Agent-04\nPriority: High\nStatus: Resolved\n\nIssue Description:\nunable to access shared mailbox with current credentials",
+                "embedding_text": "unable to access shared mailbox with current credentials"
+            }
+        ],
+        "analysis": {
+            "group_label": "Access Issues with Shared Mailbox Using Current Credentials",
+            "summary": "Users are experiencing inability to access a shared mailbox despite using their current credentials.",
+            "common_patterns": [
+                "Access attempts to shared mailbox fail",
+                "Users report credentials are correct but access is denied",
+                "Issue consistently involves shared mailbox access"
+            ],
+            "hypotheses": [
+                "Permissions for the shared mailbox may have been changed or revoked",
+                "Credential caching or token issues causing authentication failures",
+                "Shared mailbox configuration or synchronization problems",
+                "Account or mailbox may be disabled or locked"
+            ],
+            "recommended_checks": [
+                "Verify user permissions on the shared mailbox in the mail server or directory service",
+                "Check for recent changes to mailbox access policies or group memberships",
+                "Review authentication logs for failed access attempts and error codes",
+                "Confirm that user accounts and mailboxes are active and not locked",
+                "Test access using alternative credentials or from different clients to isolate the issue"
+            ]
+        }
+    },
+    {
+        "group_number": 6,
+        "tickets": [
+            {
+                "display_text": "Ticket Summary\n--------------\nTicket ID: TICK-0007\nDate Created: 2025-03-16\nDepartment: IT\nAssigned To: Agent-08\nPriority: High\nStatus: In Progress\n\nIssue Description:\ndatabase connection fails intermittently this is happening frequently and disrupting work.",
+                "embedding_text": "database connection fails intermittently this is happening frequently and disrupting work."
+            },
+            {
+                "display_text": "Ticket Summary\n--------------\nTicket ID: TICK-0012\nDate Created: 2025-03-07\nDepartment: HR\nAssigned To: Agent-05\nPriority: Medium\nStatus: Closed\n\nIssue Description:\ndatabase connection fails intermittently",
+                "embedding_text": "database connection fails intermittently"
+            },
+            {
+                "display_text": "Ticket Summary\n--------------\nTicket ID: TICK-0037\nDate Created: 2025-02-27\nDepartment: HR\nAssigned To: Agent-03\nPriority: Critical\nStatus: Resolved\n\nIssue Description:\ndatabase connection fails intermittently",
+                "embedding_text": "database connection fails intermittently"
+            }
+        ],
+        "analysis": {
+            "group_label": "Intermittent Database Connection Failures",
+            "summary": "This group consists of incidents reporting frequent intermittent failures in database connections, causing disruptions to work.",
+            "common_patterns": [
+                "All incidents describe intermittent failures in database connectivity.",
+                "Failures are frequent and impact user operations.",
+                "No specific database type or environment details are provided."
+            ],
+            "hypotheses": [
+                "Network instability or latency issues could be causing intermittent connectivity problems.",
+                "Database server resource constraints or overload might be leading to connection drops.",
+                "Configuration issues such as connection pool limits or firewall rules could be intermittently blocking access."
+            ],
+            "recommended_checks": [
+                "Review database server logs for errors or resource bottlenecks during failure times.",
+                "Monitor network performance and check for packet loss or latency spikes.",
+                "Verify database connection pool settings and limits.",
+                "Check firewall and security group rules for intermittent blocking.",
+                "Assess recent changes or deployments that might affect database connectivity."
+            ]
+        }
+    },
+    {
+        "group_number": 7,
+        "tickets": [
+            {
+                "display_text": "Ticket Summary\n--------------\nTicket ID: TICK-0009\nDate Created: 2025-03-15\nDepartment: Sales\nAssigned To: Agent-08\nPriority: Medium\nStatus: Open\n\nIssue Description:\nnew employee needs account setup and permissions this issue occurred once before last month.",
+                "embedding_text": "new employee needs account setup and permissions this issue occurred once before last month."
+            },
+            {
+                "display_text": "Ticket Summary\n--------------\nTicket ID: TICK-0013\nDate Created: 2025-03-23\nDepartment: HR\nAssigned To: Agent-08\nPriority: Critical\nStatus: Pending\n\nIssue Description:\nnew employee needs account setup and permissions i've tried restarting but the problem persists.",
+                "embedding_text": "new employee needs account setup and permissions i've tried restarting but the problem persists."
+            },
+            {
+                "display_text": "Ticket Summary\n--------------\nTicket ID: TICK-0067\nDate Created: 2025-03-23\nDepartment: Finance\nAssigned To: Agent-05\nPriority: Low\nStatus: Pending\n\nIssue Description:\nnew employee needs account setup and permissions",
+                "embedding_text": "new employee needs account setup and permissions"
+            }
+        ],
+        "analysis": {
+            "group_label": "New Employee Account Setup and Permissions Requests",
+            "summary": "This group consists of incidents where new employees require account setup and appropriate permissions. One incident notes a previous occurrence last month, and another mentions that restarting did not resolve the issue.",
+            "common_patterns": [
+                "All incidents involve new employee account creation and permission assignment.",
+                "At least one incident indicates a recurring issue from the previous month.",
+                "One incident suggests that a restart was attempted but did not solve the problem."
+            ],
+            "hypotheses": [
+                "There may be a recurring problem or delay in the account setup process for new employees.",
+                "The standard procedure for account setup might be encountering technical issues that are not resolved by simple restarts."
+            ],
+            "recommended_checks": [
+                "Verify the account provisioning workflow for new employees to identify any bottlenecks or failures.",
+                "Check system logs for errors during account creation and permission assignment.",
+                "Review any recent changes to the account management system that could affect new account setups.",
+                "Confirm if automated scripts or tools used for account setup are functioning correctly.",
+                "Assess if there are permission-related policies or restrictions causing delays."
+            ]
+        }
+    },
+    {
+        "group_number": 8,
+        "tickets": [
+            {
+                "display_text": "Ticket Summary\n--------------\nTicket ID: TICK-0010\nDate Created: 2025-03-24\nDepartment: Operations\nAssigned To: Agent-11\nPriority: Medium\nStatus: Pending\n\nIssue Description:\napplication giving compatibility errors with os",
+                "embedding_text": "application giving compatibility errors with os"
+            },
+            {
+                "display_text": "Ticket Summary\n--------------\nTicket ID: TICK-0014\nDate Created: 2025-02-24\nDepartment: Operations\nAssigned To: Agent-06\nPriority: Medium\nStatus: Open\n\nIssue Description:\napplication giving compatibility errors with os",
+                "embedding_text": "application giving compatibility errors with os"
+            },
+            {
+                "display_text": "Ticket Summary\n--------------\nTicket ID: TICK-0093\nDate Created: 2025-02-23\nDepartment: Marketing\nAssigned To: Agent-16\nPriority: High\nStatus: Pending\n\nIssue Description:\napplication giving compatibility errors with os",
+                "embedding_text": "application giving compatibility errors with os"
+            }
+        ],
+        "analysis": {
+            "group_label": "Application Compatibility Errors with Operating System",
+            "summary": "Multiple incidents report that an application is generating compatibility errors when running on the operating system.",
+            "common_patterns": [
+                "Repeated reports of compatibility errors between the same application and the OS",
+                "No variation in error type, all related to compatibility issues",
+                "Issues likely occur during application launch or execution"
+            ],
+            "hypotheses": [
+                "The application may not be supported on the current OS version",
+                "Recent OS updates could have introduced incompatibility",
+                "Application dependencies or configurations may be outdated or mismatched with the OS"
+            ],
+            "recommended_checks": [
+                "Verify the OS version and check application compatibility documentation",
+                "Review recent OS updates or patches that might affect application compatibility",
+                "Check application logs for detailed error messages",
+                "Confirm if the application has required dependencies installed and updated",
+                "Test the application on a supported OS version or environment"
+            ]
+        }
+    },
+    {
+        "group_number": 9,
+        "tickets": [
+            {
+                "display_text": "Ticket Summary\n--------------\nTicket ID: TICK-0017\nDate Created: 2025-02-28\nDepartment: Customer Support\nAssigned To: Agent-10\nPriority: Low\nStatus: Pending\n\nIssue Description:\nrouter keeps rebooting in the conference room i need this resolved by end of day if possible.",
+                "embedding_text": "router keeps rebooting in the conference room i need this resolved by end of day if possible."
+            },
+            {
+                "display_text": "Ticket Summary\n--------------\nTicket ID: TICK-0058\nDate Created: 2025-03-08\nDepartment: Marketing\nAssigned To: Agent-15\nPriority: High\nStatus: Pending\n\nIssue Description:\nrouter keeps rebooting in the conference room",
+                "embedding_text": "router keeps rebooting in the conference room"
+            }
+        ],
+        "analysis": {
+            "group_label": "Router Rebooting in Conference Room",
+            "summary": "Multiple incidents report that the router located in the conference room is repeatedly rebooting, causing potential connectivity issues.",
+            "common_patterns": [
+                "Router device is the affected hardware",
+                "Issue occurs specifically in the conference room",
+                "Router experiences continuous or repeated reboots"
+            ],
+            "hypotheses": [
+                "Power supply instability or failure causing router reboots",
+                "Firmware or software bugs leading to router crashes",
+                "Overheating or hardware malfunction in the router",
+                "External factors such as network loops or configuration errors triggering reboots"
+            ],
+            "recommended_checks": [
+                "Verify power source stability and check for loose or faulty cables",
+                "Review router logs for error messages or crash reports",
+                "Check router firmware version and apply updates if available",
+                "Inspect physical environment for overheating or ventilation issues",
+                "Examine network configuration for loops or anomalies"
+            ]
+        }
+    },
+    {
+        "group_number": 10,
+        "tickets": [
+            {
+                "display_text": "Ticket Summary\n--------------\nTicket ID: TICK-0021\nDate Created: 2025-03-14\nDepartment: Sales\nAssigned To: Agent-07\nPriority: Medium\nStatus: Closed\n\nIssue Description:\nprogram won't start after latest windows update",
+                "embedding_text": "program won't start after latest windows update"
+            },
+            {
+                "display_text": "Ticket Summary\n--------------\nTicket ID: TICK-0029\nDate Created: 2025-03-22\nDepartment: Customer Support\nAssigned To: Agent-18\nPriority: Critical\nStatus: Open\n\nIssue Description:\nprogram won't start after latest windows update",
+                "embedding_text": "program won't start after latest windows update"
+            },
+            {
+                "display_text": "Ticket Summary\n--------------\nTicket ID: TICK-0042\nDate Created: 2025-03-01\nDepartment: Operations\nAssigned To: Agent-09\nPriority: Medium\nStatus: Resolved\n\nIssue Description:\nprogram won't start after latest windows update",
+                "embedding_text": "program won't start after latest windows update"
+            }
+        ],
+        "analysis": {
+            "group_label": "Application Startup Failure Post Windows Update",
+            "summary": "Multiple incidents report that a specific program fails to start following the installation of the latest Windows update.",
+            "common_patterns": [
+                "Program fails to launch immediately after applying the most recent Windows update",
+                "Issue consistently occurs across multiple reports with identical descriptions",
+                "No additional error messages or program names provided"
+            ],
+            "hypotheses": [
+                "The latest Windows update introduced compatibility issues affecting the program's startup",
+                "The update may have altered system files or dependencies required by the program",
+                "Corruption or incomplete installation of the update could be preventing the program from launching"
+            ],
+            "recommended_checks": [
+                "Verify if the program is compatible with the latest Windows update version",
+                "Check Windows update logs for any errors or warnings during installation",
+                "Review application event logs for error details when attempting to start the program",
+                "Test program startup in Safe Mode or after uninstalling the latest update",
+                "Check for available patches or updates for the program addressing compatibility"
+            ]
+        }
+    },
+    {
+        "group_number": 11,
+        "tickets": [
+            {
+                "display_text": "Ticket Summary\n--------------\nTicket ID: TICK-0023\nDate Created: 2025-03-13\nDepartment: Sales\nAssigned To: Agent-08\nPriority: Medium\nStatus: Pending\n\nIssue Description:\ncannot login to my account after password change",
+                "embedding_text": "cannot login to my account after password change"
+            },
+            {
+                "display_text": "Ticket Summary\n--------------\nTicket ID: TICK-0047\nDate Created: 2025-03-12\nDepartment: Finance\nAssigned To: Agent-06\nPriority: Medium\nStatus: Closed\n\nIssue Description:\ncannot login to my account after password change",
+                "embedding_text": "cannot login to my account after password change"
+            },
+            {
+                "display_text": "Ticket Summary\n--------------\nTicket ID: TICK-0064\nDate Created: 2025-03-20\nDepartment: Customer Support\nAssigned To: Agent-15\nPriority: High\nStatus: Closed\n\nIssue Description:\ncannot login to my account after password change",
+                "embedding_text": "cannot login to my account after password change"
+            },
+            {
+                "display_text": "Ticket Summary\n--------------\nTicket ID: TICK-0086\nDate Created: 2025-03-08\nDepartment: Operations\nAssigned To: Agent-16\nPriority: Medium\nStatus: Closed\n\nIssue Description:\ncannot login to my account after password change",
+                "embedding_text": "cannot login to my account after password change"
+            }
+        ],
+        "analysis": {
+            "group_label": "Login Issues Post Password Change",
+            "summary": "Multiple users are unable to log in to their accounts immediately after changing their passwords.",
+            "common_patterns": [
+                "Login failures occur directly following a password change.",
+                "Issue is consistently reported across multiple incidents with identical descriptions.",
+                "No additional error messages or system behaviors are described."
+            ],
+            "hypotheses": [
+                "There may be a delay or synchronization issue between the password change process and the authentication system.",
+                "Password change process might not be properly updating credentials in all relevant authentication databases or services.",
+                "Users might be entering incorrect new passwords due to confusion or system not confirming password change success."
+            ],
+            "recommended_checks": [
+                "Verify the password change workflow and ensure updates propagate correctly to all authentication systems.",
+                "Check for any replication delays or errors in directory services or authentication databases.",
+                "Review logs for authentication failures correlated with password change timestamps.",
+                "Confirm that users receive clear confirmation of successful password changes.",
+                "Test the password change and login process end-to-end to reproduce the issue."
+            ]
+        }
+    },
+    {
+        "group_number": 12,
+        "tickets": [
+            {
+                "display_text": "Ticket Summary\n--------------\nTicket ID: TICK-0024\nDate Created: 2025-03-02\nDepartment: Customer Support\nAssigned To: Agent-11\nPriority: Low\nStatus: Open\n\nIssue Description:\nvpn connection keeps dropping every 10 minutes this is happening frequently and disrupting work.",
+                "embedding_text": "vpn connection keeps dropping every 10 minutes this is happening frequently and disrupting work."
+            },
+            {
+                "display_text": "Ticket Summary\n--------------\nTicket ID: TICK-0053\nDate Created: 2025-03-06\nDepartment: Sales\nAssigned To: Agent-17\nPriority: Critical\nStatus: Resolved\n\nIssue Description:\nvpn connection keeps dropping every 10 minutes",
+                "embedding_text": "vpn connection keeps dropping every 10 minutes"
+            },
+            {
+                "display_text": "Ticket Summary\n--------------\nTicket ID: TICK-0073\nDate Created: 2025-02-27\nDepartment: IT\nAssigned To: Agent-09\nPriority: Medium\nStatus: Closed\n\nIssue Description:\nvpn connection keeps dropping every 10 minutes",
+                "embedding_text": "vpn connection keeps dropping every 10 minutes"
+            },
+            {
+                "display_text": "Ticket Summary\n--------------\nTicket ID: TICK-0098\nDate Created: 2025-03-15\nDepartment: Operations\nAssigned To: Agent-03\nPriority: High\nStatus: In Progress\n\nIssue Description:\nvpn connection keeps dropping every 10 minutes this started after the recent system update.",
+                "embedding_text": "vpn connection keeps dropping every 10 minutes this started after the recent system update."
+            }
+        ],
+        "analysis": {
+            "group_label": "Frequent VPN Connection Drops",
+            "summary": "Multiple incidents report that the VPN connection drops every 10 minutes, causing frequent disruptions. One incident notes the issue began after a recent system update.",
+            "common_patterns": [
+                "VPN connection drops occur consistently every 10 minutes.",
+                "Issue is frequent and disruptive to work.",
+                "At least one report links the problem onset to a recent system update."
+            ],
+            "hypotheses": [
+                "The VPN disconnections may be caused by a timeout or session limit set to 10 minutes.",
+                "The recent system update could have introduced a bug or configuration change affecting VPN stability.",
+                "Network infrastructure or VPN server settings might be enforcing periodic disconnects."
+            ],
+            "recommended_checks": [
+                "Review VPN server and client timeout or session duration settings.",
+                "Analyze logs around the time of disconnections to identify error messages or patterns.",
+                "Verify if the recent system update included changes to VPN software or network configurations.",
+                "Check network stability and any firewall or security appliance rules that could cause periodic drops."
+            ]
+        }
+    },
+    {
+        "group_number": 13,
+        "tickets": [
+            {
+                "display_text": "Ticket Summary\n--------------\nTicket ID: TICK-0026\nDate Created: 2025-03-08\nDepartment: IT\nAssigned To: Agent-14\nPriority: Low\nStatus: In Progress\n\nIssue Description:\nrequesting security audit for compliance purposes i need this resolved by end of day if possible.",
+                "embedding_text": "requesting security audit for compliance purposes i need this resolved by end of day if possible."
+            },
+            {
+                "display_text": "Ticket Summary\n--------------\nTicket ID: TICK-0059\nDate Created: 2025-03-20\nDepartment: HR\nAssigned To: Agent-17\nPriority: Low\nStatus: In Progress\n\nIssue Description:\nrequesting security audit for compliance purposes",
+                "embedding_text": "requesting security audit for compliance purposes"
+            }
+        ],
+        "analysis": {
+            "group_label": "Security Audit Requests for Compliance",
+            "summary": "This group contains incidents where users are requesting security audits specifically for compliance purposes, with at least one request indicating urgency for resolution by the end of the day.",
+            "common_patterns": [
+                "Requests explicitly mention the need for a security audit.",
+                "The purpose of the audit is compliance-related.",
+                "At least one request includes a time-sensitive requirement."
+            ],
+            "hypotheses": [
+                "Users are preparing for regulatory or internal compliance assessments.",
+                "There may be upcoming deadlines or audits driving urgency.",
+                "The security audit process might not be fully automated or streamlined, leading to manual requests."
+            ],
+            "recommended_checks": [
+                "Verify current compliance deadlines or audit schedules that may be influencing these requests.",
+                "Check the status and capacity of the security audit team or tools to handle urgent requests.",
+                "Review existing procedures for initiating security audits to identify potential automation or efficiency improvements."
+            ]
+        }
+    },
+    {
+        "group_number": 14,
+        "tickets": [
+            {
+                "display_text": "Ticket Summary\n--------------\nTicket ID: TICK-0028\nDate Created: 2025-03-01\nDepartment: Finance\nAssigned To: Agent-14\nPriority: Critical\nStatus: Pending\n\nIssue Description:\nerror when trying to access customer database",
+                "embedding_text": "error when trying to access customer database"
+            },
+            {
+                "display_text": "Ticket Summary\n--------------\nTicket ID: TICK-0060\nDate Created: 2025-03-02\nDepartment: Customer Support\nAssigned To: Agent-07\nPriority: Medium\nStatus: Resolved\n\nIssue Description:\nerror when trying to access customer database i need this resolved by end of day if possible.",
+                "embedding_text": "error when trying to access customer database i need this resolved by end of day if possible."
+            },
+            {
+                "display_text": "Ticket Summary\n--------------\nTicket ID: TICK-0090\nDate Created: 2025-03-17\nDepartment: Finance\nAssigned To: Agent-16\nPriority: Medium\nStatus: In Progress\n\nIssue Description:\nerror when trying to access customer database i need this resolved by end of day if possible.",
+                "embedding_text": "error when trying to access customer database i need this resolved by end of day if possible."
+            }
+        ],
+        "analysis": {
+            "group_label": "Customer Database Access Errors",
+            "summary": "Multiple incidents report errors occurring when attempting to access the customer database, with at least two requests emphasizing urgency for resolution by the end of the day.",
+            "common_patterns": [
+                "All incidents involve errors related to accessing the customer database.",
+                "Two incidents explicitly request resolution by the end of the day, indicating a high priority or business impact.",
+                "The error nature or specific error messages are not detailed in the descriptions."
+            ],
+            "hypotheses": [
+                "The customer database may be experiencing connectivity or authentication issues.",
+                "There could be a service outage or degradation affecting database accessibility.",
+                "The urgency suggests the issue is impacting business operations or customer-facing services."
+            ],
+            "recommended_checks": [
+                "Verify the status and health of the customer database server(s).",
+                "Check network connectivity between application servers and the customer database.",
+                "Review recent changes or deployments that might affect database access.",
+                "Examine authentication and permission settings for database access.",
+                "Check for any ongoing maintenance or outages reported on the database systems."
+            ]
+        }
+    },
+    {
+        "group_number": 15,
+        "tickets": [
+            {
+                "display_text": "Ticket Summary\n--------------\nTicket ID: TICK-0031\nDate Created: 2025-03-01\nDepartment: Finance\nAssigned To: Agent-13\nPriority: Low\nStatus: Closed\n\nIssue Description:\nneed help installing specialized software",
+                "embedding_text": "need help installing specialized software"
+            },
+            {
+                "display_text": "Ticket Summary\n--------------\nTicket ID: TICK-0046\nDate Created: 2025-03-04\nDepartment: HR\nAssigned To: Agent-07\nPriority: Low\nStatus: Resolved\n\nIssue Description:\nneed help installing specialized software",
+                "embedding_text": "need help installing specialized software"
+            },
+            {
+                "display_text": "Ticket Summary\n--------------\nTicket ID: TICK-0048\nDate Created: 2025-03-18\nDepartment: Customer Support\nAssigned To: Agent-08\nPriority: Critical\nStatus: Resolved\n\nIssue Description:\nneed help installing specialized software",
+                "embedding_text": "need help installing specialized software"
+            }
+        ],
+        "analysis": {
+            "group_label": "Assistance with Specialized Software Installation",
+            "summary": "Multiple incidents report users needing help with installing specialized software.",
+            "common_patterns": [
+                "Repeated requests for installation assistance",
+                "Focus on specialized software rather than general applications",
+                "No mention of specific software names or error messages"
+            ],
+            "hypotheses": [
+                "Users may lack sufficient technical knowledge or permissions to install specialized software independently",
+                "There could be complexity or specific steps required for installing this software that users find challenging",
+                "Installation documentation or automated installation tools might be insufficient or unavailable"
+            ],
+            "recommended_checks": [
+                "Verify if installation guides or documentation for the specialized software are available and up to date",
+                "Check if users have the necessary permissions to install the software",
+                "Assess whether automated installation scripts or tools can be developed or improved",
+                "Review if training or support resources are provided to users for this software installation"
+            ]
+        }
+    },
+    {
+        "group_number": 16,
+        "tickets": [
+            {
+                "display_text": "Ticket Summary\n--------------\nTicket ID: TICK-0032\nDate Created: 2025-03-20\nDepartment: Marketing\nAssigned To: Agent-18\nPriority: High\nStatus: Closed\n\nIssue Description:\ncannot access company intranet from remote location",
+                "embedding_text": "cannot access company intranet from remote location"
+            },
+            {
+                "display_text": "Ticket Summary\n--------------\nTicket ID: TICK-0070\nDate Created: 2025-03-06\nDepartment: Customer Support\nAssigned To: Agent-14\nPriority: Critical\nStatus: Resolved\n\nIssue Description:\ncannot access company intranet from remote location",
+                "embedding_text": "cannot access company intranet from remote location"
+            },
+            {
+                "display_text": "Ticket Summary\n--------------\nTicket ID: TICK-0081\nDate Created: 2025-03-08\nDepartment: Operations\nAssigned To: Agent-05\nPriority: Critical\nStatus: Resolved\n\nIssue Description:\ncannot access company intranet from remote location this is happening frequently and disrupting work.",
+                "embedding_text": "cannot access company intranet from remote location this is happening frequently and disrupting work."
+            }
+        ],
+        "analysis": {
+            "group_label": "Remote Access to Company Intranet Issues",
+            "summary": "Multiple incidents report inability to access the company intranet from remote locations, with at least one indicating frequent occurrences causing work disruption.",
+            "common_patterns": [
+                "Access to company intranet is blocked or unavailable when connecting remotely.",
+                "Issue is recurring and impacts user productivity."
+            ],
+            "hypotheses": [
+                "There may be network connectivity issues affecting VPN or remote access gateways.",
+                "Authentication or authorization failures could be preventing remote intranet access.",
+                "Firewall or security policy changes might be blocking remote access traffic.",
+                "Infrastructure capacity or configuration problems could be causing intermittent outages."
+            ],
+            "recommended_checks": [
+                "Verify VPN or remote access gateway status and logs for errors or outages.",
+                "Check network connectivity between remote users and intranet servers.",
+                "Review firewall and security policies for recent changes affecting remote access.",
+                "Examine authentication systems for failures or misconfigurations.",
+                "Assess intranet server availability and performance during reported incidents."
+            ]
+        }
+    },
+    {
+        "group_number": 17,
+        "tickets": [
+            {
+                "display_text": "Ticket Summary\n--------------\nTicket ID: TICK-0034\nDate Created: 2025-03-11\nDepartment: IT\nAssigned To: Agent-17\nPriority: Medium\nStatus: Pending\n\nIssue Description:\ncannot connect to wifi network in office",
+                "embedding_text": "cannot connect to wifi network in office"
+            },
+            {
+                "display_text": "Ticket Summary\n--------------\nTicket ID: TICK-0044\nDate Created: 2025-02-27\nDepartment: Operations\nAssigned To: Agent-15\nPriority: Medium\nStatus: Resolved\n\nIssue Description:\ncannot connect to wifi network in office",
+                "embedding_text": "cannot connect to wifi network in office"
+            }
+        ],
+        "analysis": {
+            "group_label": "Office WiFi Connectivity Issues",
+            "summary": "Multiple incidents report inability to connect to the office WiFi network.",
+            "common_patterns": [
+                "Users are unable to establish a connection to the office WiFi network.",
+                "The issue is location-specific to the office environment."
+            ],
+            "hypotheses": [
+                "There may be an outage or misconfiguration in the office WiFi access points.",
+                "Network authentication services (e.g., RADIUS server) could be down or unreachable.",
+                "There could be interference or hardware failure affecting WiFi signal in the office."
+            ],
+            "recommended_checks": [
+                "Verify the operational status of office WiFi access points and controllers.",
+                "Check network authentication servers and related services for availability.",
+                "Assess WiFi signal strength and interference levels in the office area.",
+                "Review recent network configuration changes affecting office WiFi."
+            ]
+        }
+    },
+    {
+        "group_number": 18,
+        "tickets": [
+            {
+                "display_text": "Ticket Summary\n--------------\nTicket ID: TICK-0039\nDate Created: 2025-03-23\nDepartment: HR\nAssigned To: Agent-06\nPriority: High\nStatus: In Progress\n\nIssue Description:\noutlook keeps crashing when opening specific emails this is happening frequently and disrupting work.",
+                "embedding_text": "outlook keeps crashing when opening specific emails this is happening frequently and disrupting work."
+            },
+            {
+                "display_text": "Ticket Summary\n--------------\nTicket ID: TICK-0049\nDate Created: 2025-03-07\nDepartment: Finance\nAssigned To: Agent-07\nPriority: Critical\nStatus: Open\n\nIssue Description:\noutlook keeps crashing when opening specific emails this is happening frequently and disrupting work.",
+                "embedding_text": "outlook keeps crashing when opening specific emails this is happening frequently and disrupting work."
+            }
+        ],
+        "analysis": {
+            "group_label": "Outlook Crashes When Opening Specific Emails",
+            "summary": "Users experience frequent crashes of Microsoft Outlook when attempting to open certain specific emails, causing work disruption.",
+            "common_patterns": [
+                "Crashes occur specifically when opening certain emails",
+                "Issue is frequent and reproducible",
+                "Disruption to user productivity"
+            ],
+            "hypotheses": [
+                "The specific emails may contain corrupted data or malformed content causing Outlook to crash",
+                "There could be problematic add-ins or plugins triggered by these emails",
+                "The Outlook client or its data files (PST/OST) might be corrupted",
+                "There may be compatibility issues with embedded content such as images or attachments in those emails"
+            ],
+            "recommended_checks": [
+                "Examine the problematic emails for corrupted or unusual content",
+                "Test Outlook in safe mode to rule out add-in interference",
+                "Run Outlook repair tools (e.g., scanpst.exe) on user data files",
+                "Check for recent updates or patches for Outlook and apply if missing",
+                "Review event logs for error details when the crash occurs"
+            ]
+        }
+    },
+    {
+        "group_number": 19,
+        "tickets": [
+            {
+                "display_text": "Ticket Summary\n--------------\nTicket ID: TICK-0040\nDate Created: 2025-03-20\nDepartment: Operations\nAssigned To: Agent-18\nPriority: Low\nStatus: Pending\n\nIssue Description:\nmalware warning appeared while browsing work-related site",
+                "embedding_text": "malware warning appeared while browsing work-related site"
+            },
+            {
+                "display_text": "Ticket Summary\n--------------\nTicket ID: TICK-0043\nDate Created: 2025-02-24\nDepartment: Customer Support\nAssigned To: Agent-09\nPriority: Critical\nStatus: Open\n\nIssue Description:\nmalware warning appeared while browsing work-related site i need this resolved by end of day if possible.",
+                "embedding_text": "malware warning appeared while browsing work-related site i need this resolved by end of day if possible."
+            },
+            {
+                "display_text": "Ticket Summary\n--------------\nTicket ID: TICK-0100\nDate Created: 2025-03-04\nDepartment: IT\nAssigned To: Agent-08\nPriority: Critical\nStatus: Resolved\n\nIssue Description:\nmalware warning appeared while browsing work-related site",
+                "embedding_text": "malware warning appeared while browsing work-related site"
+            }
+        ],
+        "analysis": {
+            "group_label": "Malware Warning During Work-Related Browsing",
+            "summary": "Multiple incidents report malware warnings appearing while users are browsing work-related websites.",
+            "common_patterns": [
+                "Malware warnings triggered during access to work-related sites",
+                "Users are actively browsing work-related content when warnings occur",
+                "Urgency expressed in at least one incident for timely resolution"
+            ],
+            "hypotheses": [
+                "The work-related site(s) being accessed may be compromised or hosting malicious content",
+                "Endpoint security solutions are detecting potential threats during web browsing",
+                "False positives from malware detection tools could be causing the warnings"
+            ],
+            "recommended_checks": [
+                "Verify the reputation and security status of the work-related websites involved",
+                "Review endpoint security logs to identify the nature of the malware warnings",
+                "Check for recent updates or changes in malware detection software that might cause false positives",
+                "Scan affected endpoints for malware to confirm if infections are present",
+                "Assess network traffic for any suspicious activity related to the browsing sessions"
+            ]
+        }
+    },
+    {
+        "group_number": 20,
+        "tickets": [
+            {
+                "display_text": "Ticket Summary\n--------------\nTicket ID: TICK-0041\nDate Created: 2025-03-03\nDepartment: Operations\nAssigned To: Agent-18\nPriority: Low\nStatus: Open\n\nIssue Description:\nunable to send attachments larger than 5mb this started after the recent system update.",
+                "embedding_text": "unable to send attachments larger than 5mb this started after the recent system update."
+            },
+            {
+                "display_text": "Ticket Summary\n--------------\nTicket ID: TICK-0075\nDate Created: 2025-03-18\nDepartment: HR\nAssigned To: Agent-08\nPriority: Low\nStatus: Pending\n\nIssue Description:\nunable to send attachments larger than 5mb",
+                "embedding_text": "unable to send attachments larger than 5mb"
+            },
+            {
+                "display_text": "Ticket Summary\n--------------\nTicket ID: TICK-0096\nDate Created: 2025-03-12\nDepartment: Customer Support\nAssigned To: Agent-17\nPriority: Medium\nStatus: Closed\n\nIssue Description:\nunable to send attachments larger than 5mb this is happening frequently and disrupting work.",
+                "embedding_text": "unable to send attachments larger than 5mb this is happening frequently and disrupting work."
+            }
+        ],
+        "analysis": {
+            "group_label": "Attachment Size Limit Issue",
+            "summary": "Users are unable to send email attachments larger than 5MB. The issue has been reported multiple times and is causing work disruptions. One report indicates the problem started after a recent system update.",
+            "common_patterns": [
+                "Attachment size limit of 5MB is a consistent threshold for failure.",
+                "Issue affects sending attachments via email or messaging system.",
+                "Problem is recurring and impacting user productivity.",
+                "Potential correlation with a recent system update."
+            ],
+            "hypotheses": [
+                "The recent system update may have introduced or enforced a new attachment size limit.",
+                "There could be a configuration change in the mail server or client restricting attachment sizes.",
+                "Network or security policies might be blocking larger attachments post-update."
+            ],
+            "recommended_checks": [
+                "Review recent system update release notes for changes related to attachment size limits.",
+                "Verify mail server and client configuration settings for attachment size restrictions.",
+                "Check logs for errors related to attachment handling or size limits.",
+                "Confirm if any security appliances or policies have been updated to restrict attachment sizes.",
+                "Test sending attachments just below and above the 5MB threshold to confirm behavior."
+            ]
+        }
+    },
+    {
+        "group_number": 21,
+        "tickets": [
+            {
+                "display_text": "Ticket Summary\n--------------\nTicket ID: TICK-0050\nDate Created: 2025-03-20\nDepartment: IT\nAssigned To: Agent-07\nPriority: Medium\nStatus: In Progress\n\nIssue Description:\nneed to securely share sensitive files with external client",
+                "embedding_text": "need to securely share sensitive files with external client"
+            },
+            {
+                "display_text": "Ticket Summary\n--------------\nTicket ID: TICK-0094\nDate Created: 2025-02-24\nDepartment: IT\nAssigned To: Agent-03\nPriority: Critical\nStatus: Resolved\n\nIssue Description:\nneed to securely share sensitive files with external client",
+                "embedding_text": "need to securely share sensitive files with external client"
+            }
+        ],
+        "analysis": {
+            "group_label": "Secure File Sharing with External Clients",
+            "summary": "Incidents involve requests or needs to securely share sensitive files with external clients.",
+            "common_patterns": [
+                "Requirement for secure transmission of sensitive data",
+                "Involvement of external recipients outside the organization",
+                "Focus on data confidentiality and protection during file sharing"
+            ],
+            "hypotheses": [
+                "Users may lack access to or knowledge of secure file sharing tools or protocols",
+                "There may be concerns about compliance with data protection policies when sharing files externally"
+            ],
+            "recommended_checks": [
+                "Verify availability and user access to approved secure file sharing platforms (e.g., encrypted email, secure FTP, or enterprise file sharing services)",
+                "Check if users are trained or informed about secure file sharing procedures",
+                "Review existing policies on external data sharing and ensure they are communicated clearly",
+                "Assess if there are technical controls in place to prevent insecure file sharing"
+            ]
+        }
+    },
+    {
+        "group_number": 22,
+        "tickets": [
+            {
+                "display_text": "Ticket Summary\n--------------\nTicket ID: TICK-0051\nDate Created: 2025-02-25\nDepartment: Operations\nAssigned To: Agent-17\nPriority: High\nStatus: Resolved\n\nIssue Description:\nwebsite loading very slowly for customers",
+                "embedding_text": "website loading very slowly for customers"
+            },
+            {
+                "display_text": "Ticket Summary\n--------------\nTicket ID: TICK-0052\nDate Created: 2025-03-23\nDepartment: Sales\nAssigned To: Agent-09\nPriority: Medium\nStatus: Resolved\n\nIssue Description:\nwebsite loading very slowly for customers this is happening frequently and disrupting work.",
+                "embedding_text": "website loading very slowly for customers this is happening frequently and disrupting work."
+            },
+            {
+                "display_text": "Ticket Summary\n--------------\nTicket ID: TICK-0074\nDate Created: 2025-03-05\nDepartment: HR\nAssigned To: Agent-14\nPriority: Critical\nStatus: Resolved\n\nIssue Description:\nwebsite loading very slowly for customers",
+                "embedding_text": "website loading very slowly for customers"
+            }
+        ],
+        "analysis": {
+            "group_label": "Website Performance Issues - Slow Loading",
+            "summary": "Multiple incidents report that the website is loading very slowly for customers, with some indicating frequent occurrences causing work disruption.",
+            "common_patterns": [
+                "Consistent issue of slow website loading experienced by customers",
+                "Frequency of the issue noted in at least one incident",
+                "Impact on customer experience and business operations"
+            ],
+            "hypotheses": [
+                "There may be underlying server performance or capacity issues causing slow response times.",
+                "Network latency or bandwidth constraints could be affecting website load speeds.",
+                "Recent changes or deployments might have introduced performance regressions.",
+                "High traffic volumes or DDoS attacks could be contributing to the slowness."
+            ],
+            "recommended_checks": [
+                "Monitor server CPU, memory, and disk usage during reported slow periods.",
+                "Analyze network latency and bandwidth utilization between customers and servers.",
+                "Review recent deployment logs and changes to identify potential performance impacts.",
+                "Check web server and application logs for errors or warnings.",
+                "Evaluate traffic patterns for spikes or unusual activity that could affect performance."
+            ]
+        }
+    },
+    {
+        "group_number": 23,
+        "tickets": [
+            {
+                "display_text": "Ticket Summary\n--------------\nTicket ID: TICK-0056\nDate Created: 2025-03-05\nDepartment: Sales\nAssigned To: Agent-05\nPriority: High\nStatus: Closed\n\nIssue Description:\ncalendar invitations not syncing with mobile device",
+                "embedding_text": "calendar invitations not syncing with mobile device"
+            },
+            {
+                "display_text": "Ticket Summary\n--------------\nTicket ID: TICK-0091\nDate Created: 2025-03-01\nDepartment: HR\nAssigned To: Agent-06\nPriority: Medium\nStatus: Resolved\n\nIssue Description:\ncalendar invitations not syncing with mobile device i need this resolved by end of day if possible.",
+                "embedding_text": "calendar invitations not syncing with mobile device i need this resolved by end of day if possible."
+            }
+        ],
+        "analysis": {
+            "group_label": "Calendar Invitations Sync Issues on Mobile Devices",
+            "summary": "Users are experiencing problems with calendar invitations not syncing properly to their mobile devices.",
+            "common_patterns": [
+                "Calendar invitations fail to appear or update on mobile devices.",
+                "Issues specifically affect synchronization between calendar services and mobile platforms.",
+                "Users express urgency for resolution."
+            ],
+            "hypotheses": [
+                "There may be connectivity or authentication issues between the calendar server and mobile devices.",
+                "Mobile device settings or app configurations could be preventing proper sync.",
+                "Server-side calendar service disruptions or misconfigurations might be causing sync failures."
+            ],
+            "recommended_checks": [
+                "Verify network connectivity and authentication status on affected mobile devices.",
+                "Check calendar app sync settings and permissions on mobile devices.",
+                "Review server logs for errors related to calendar invitation processing and sync.",
+                "Confirm that calendar server services are operational and properly configured."
+            ]
+        }
+    },
+    {
+        "group_number": 24,
+        "tickets": [
+            {
+                "display_text": "Ticket Summary\n--------------\nTicket ID: TICK-0057\nDate Created: 2025-03-07\nDepartment: Marketing\nAssigned To: Agent-18\nPriority: High\nStatus: In Progress\n\nIssue Description:\nneed to add user to security group for project access",
+                "embedding_text": "need to add user to security group for project access"
+            },
+            {
+                "display_text": "Ticket Summary\n--------------\nTicket ID: TICK-0062\nDate Created: 2025-03-02\nDepartment: Customer Support\nAssigned To: Agent-04\nPriority: Low\nStatus: In Progress\n\nIssue Description:\nneed to add user to security group for project access",
+                "embedding_text": "need to add user to security group for project access"
+            },
+            {
+                "display_text": "Ticket Summary\n--------------\nTicket ID: TICK-0068\nDate Created: 2025-03-17\nDepartment: Marketing\nAssigned To: Agent-14\nPriority: Low\nStatus: In Progress\n\nIssue Description:\nneed to add user to security group for project access",
+                "embedding_text": "need to add user to security group for project access"
+            }
+        ],
+        "analysis": {
+            "group_label": "User Access Requests for Security Group Addition",
+            "summary": "Multiple incidents involve requests to add users to a security group to grant access to a specific project.",
+            "common_patterns": [
+                "All incidents are requests for user additions to a security group.",
+                "The purpose of the addition is to enable project access.",
+                "Incidents are identical in nature and wording."
+            ],
+            "hypotheses": [
+                "There may be a recurring need to onboard new users to the project, requiring frequent updates to security group memberships.",
+                "The process for granting project access is managed via security group membership rather than individual permissions."
+            ],
+            "recommended_checks": [
+                "Verify the current membership and permissions of the relevant security group.",
+                "Check if there is an automated process or workflow for adding users to this security group.",
+                "Review if there are any delays or issues in processing these access requests.",
+                "Confirm that the security group is correctly configured to provide the intended project access."
+            ]
+        }
+    },
+    {
+        "group_number": 25,
+        "tickets": [
+            {
+                "display_text": "Ticket Summary\n--------------\nTicket ID: TICK-0065\nDate Created: 2025-03-22\nDepartment: HR\nAssigned To: Agent-08\nPriority: Critical\nStatus: Closed\n\nIssue Description:\nmemory usage at 95% causing system slowdowns this issue occurred once before last month.",
+                "embedding_text": "memory usage at 95% causing system slowdowns this issue occurred once before last month."
+            },
+            {
+                "display_text": "Ticket Summary\n--------------\nTicket ID: TICK-0072\nDate Created: 2025-03-14\nDepartment: Marketing\nAssigned To: Agent-19\nPriority: Low\nStatus: Pending\n\nIssue Description:\nsystem freezes when running multiple applications this started after the recent system update.",
+                "embedding_text": "system freezes when running multiple applications this started after the recent system update."
+            },
+            {
+                "display_text": "Ticket Summary\n--------------\nTicket ID: TICK-0082\nDate Created: 2025-03-03\nDepartment: Marketing\nAssigned To: Agent-14\nPriority: Critical\nStatus: Pending\n\nIssue Description:\nsystem freezes when running multiple applications this issue occurred once before last month.",
+                "embedding_text": "system freezes when running multiple applications this issue occurred once before last month."
+            },
+            {
+                "display_text": "Ticket Summary\n--------------\nTicket ID: TICK-0095\nDate Created: 2025-03-15\nDepartment: Finance\nAssigned To: Agent-19\nPriority: Medium\nStatus: Open\n\nIssue Description:\nmemory usage at 95% causing system slowdowns",
+                "embedding_text": "memory usage at 95% causing system slowdowns"
+            },
+            {
+                "display_text": "Ticket Summary\n--------------\nTicket ID: TICK-0097\nDate Created: 2025-03-22\nDepartment: HR\nAssigned To: Agent-19\nPriority: Critical\nStatus: Pending\n\nIssue Description:\nmemory usage at 95% causing system slowdowns multiple users in our department are experiencing this issue.",
+                "embedding_text": "memory usage at 95% causing system slowdowns multiple users in our department are experiencing this issue."
+            }
+        ],
+        "analysis": {
+            "group_label": "High Memory Usage Causing System Performance Issues",
+            "summary": "Multiple incidents report high memory usage (around 95%) leading to system slowdowns and freezes, particularly when running multiple applications. Some incidents note recurrence and a possible link to a recent system update.",
+            "common_patterns": [
+                "Memory usage consistently at or near 95%",
+                "System slowdowns and freezes during multitasking",
+                "Issue reported by multiple users",
+                "Recurrence of the problem noted in some cases",
+                "Possible correlation with a recent system update"
+            ],
+            "hypotheses": [
+                "The recent system update may have introduced a memory leak or inefficient memory management.",
+                "Certain applications or workloads may be consuming excessive memory, leading to system slowdowns.",
+                "Insufficient physical memory or lack of optimization for current usage patterns could be causing high memory utilization."
+            ],
+            "recommended_checks": [
+                "Review recent system update details and known issues related to memory usage.",
+                "Monitor memory consumption by applications to identify any abnormal usage patterns.",
+                "Check system logs for errors or warnings related to memory or resource allocation.",
+                "Assess physical memory capacity versus workload requirements.",
+                "Evaluate if any background processes or services are contributing to high memory usage."
+            ]
+        }
+    },
+    {
+        "group_number": 26,
+        "tickets": [
+            {
+                "display_text": "Ticket Summary\n--------------\nTicket ID: TICK-0083\nDate Created: 2025-03-24\nDepartment: Marketing\nAssigned To: Agent-08\nPriority: High\nStatus: Open\n\nIssue Description:\nemails being marked as spam incorrectly i need this resolved by end of day if possible.",
+                "embedding_text": "emails being marked as spam incorrectly i need this resolved by end of day if possible."
+            },
+            {
+                "display_text": "Ticket Summary\n--------------\nTicket ID: TICK-0088\nDate Created: 2025-03-11\nDepartment: Operations\nAssigned To: Agent-18\nPriority: Critical\nStatus: Resolved\n\nIssue Description:\nemails being marked as spam incorrectly",
+                "embedding_text": "emails being marked as spam incorrectly"
+            }
+        ],
+        "analysis": {
+            "group_label": "Incorrect Spam Marking of Emails",
+            "summary": "Users are experiencing issues where legitimate emails are being incorrectly classified and marked as spam.",
+            "common_patterns": [
+                "Emails that should be delivered to inboxes are instead routed to spam folders.",
+                "User complaints focus on the incorrect spam classification.",
+                "Urgency is expressed to resolve the issue promptly."
+            ],
+            "hypotheses": [
+                "Spam filter rules or heuristics may be overly aggressive or misconfigured.",
+                "Recent changes or updates to the email filtering system could have introduced false positives.",
+                "Sender domains or IP addresses might be mistakenly blacklisted.",
+                "Email authentication mechanisms (SPF, DKIM, DMARC) may be failing or misconfigured, causing legitimate emails to be flagged."
+            ],
+            "recommended_checks": [
+                "Review and audit spam filter rules and recent changes.",
+                "Check email server logs for spam filter decisions and patterns.",
+                "Verify sender domain reputation and blacklists.",
+                "Validate email authentication records (SPF, DKIM, DMARC) for affected senders.",
+                "Test email delivery with different sender addresses to isolate the issue."
+            ]
+        }
+    }
+]
