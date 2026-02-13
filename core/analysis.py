@@ -1,5 +1,6 @@
 import os
 import json
+import re
 from openai import OpenAI
 
 
@@ -21,6 +22,16 @@ Rules:
 """
 
 
+def _clean_json_response(content: str) -> str:
+    """
+    Remove markdown code fences if present.
+    """
+    # Remove ```json and ``` wrappers
+    content = re.sub(r"```json", "", content)
+    content = re.sub(r"```", "", content)
+    return content.strip()
+
+
 def analyse_group(descriptions: list[str]) -> dict:
     """
     Analyse grouped ticket descriptions using LLM.
@@ -37,13 +48,15 @@ def analyse_group(descriptions: list[str]) -> dict:
     user_prompt = """
 Below is a group of incident descriptions that are semantically similar.
 
-Please provide the following in JSON format:
+Please provide the following strictly in valid JSON format:
 
-1. group_label
-2. summary
-3. common_patterns
-4. hypotheses
-5. recommended_checks
+{
+  "group_label": "...",
+  "summary": "...",
+  "common_patterns": [],
+  "hypotheses": [],
+  "recommended_checks": []
+}
 
 Incident descriptions:
 """
@@ -61,9 +74,10 @@ Incident descriptions:
     )
 
     content = response.choices[0].message.content
+    cleaned = _clean_json_response(content)
 
     try:
-        return json.loads(content)
+        return json.loads(cleaned)
     except json.JSONDecodeError:
         return {
             "error": "Failed to parse LLM response",

@@ -2,39 +2,42 @@ import streamlit as st
 import json
 from pathlib import Path
 from dotenv import load_dotenv
+
 load_dotenv()
 
 # -----------------------------
-# Imports from your core app
+# Core Imports
 # -----------------------------
 from core.loader import load_excel_tickets
-from core.embeddings import embed_texts
 from core.grouping import group_by_similarity
 from core.analysis import analyse_group
+from core.embeddings import embed_texts
+
 
 # -----------------------------
 # Config
 # -----------------------------
 MAX_DISTANCE = 0.35
 MAX_DESCRIPTIONS_PER_GROUP = 8
+OFFLINE_RESULTS_PATH = Path("data/offline/offline_results.json")
+
 
 # -----------------------------
 # Page Setup
 # -----------------------------
-st.set_page_config(
-    page_title="AI Ticket Analyzer",
-    layout="wide"
-)
-
+st.set_page_config(page_title="AI Ticket Analyzer", layout="wide")
 st.title("🧠 AI Ticket Analyzer")
 
+
 # -----------------------------
-# Sidebar Mode Selector (UNCHANGED)
+# Mode Selector (Default = Offline)
 # -----------------------------
 mode = st.sidebar.selectbox(
     "Select Mode",
-    ["Online (LLM Live)", "Offline (Pre-generated Results)"]
+    ["Offline (Pre-generated Results)", "Online (Live OpenAI)"],
+    index=0  # Default always Offline
 )
+
 
 # -----------------------------
 # File Upload
@@ -48,113 +51,157 @@ if uploaded_file is None:
     st.info("Please upload an Excel file to begin.")
     st.stop()
 
-# -----------------------------
-# Run Button
-# -----------------------------
 if not st.button("🚀 Run Analysis"):
-    st.info("Click **Run Analysis** to process the uploaded file.")
     st.stop()
+
 
 # -----------------------------
 # Load Tickets
 # -----------------------------
-with st.spinner("Loading tickets..."):
-    tickets = load_excel_tickets(uploaded_file)
-
+tickets = load_excel_tickets(uploaded_file)
 st.success(f"Loaded {len(tickets)} tickets")
 
-# -----------------------------
-# Generate Embeddings
-# -----------------------------
-with st.spinner("Generating embeddings..."):
+
+# =====================================================
+# OFFLINE MODE  ✅ DO NOT TOUCH (WORKING SAFE)
+# =====================================================
+if mode == "Offline (Pre-generated Results)":
+
+    if not OFFLINE_RESULTS_PATH.exists():
+        st.error("offline_results.json not found in data/offline/")
+        st.stop()
+
+    with open(OFFLINE_RESULTS_PATH, "r", encoding="utf-8") as f:
+        offline_results = json.load(f)
+
+    if not isinstance(offline_results, list):
+        st.error("offline_results.json format invalid.")
+        st.stop()
+
+    meaningful_groups = offline_results
+
+    st.success(f"Found {len(meaningful_groups)} meaningful groups")
+
+    for group_data in meaningful_groups:
+
+        group_number = group_data.get("group_number", "?")
+        tickets_in_group = group_data.get("tickets", [])
+        analysis = group_data.get("analysis", {})
+
+        with st.expander(
+            f"📌 Group {group_number} ({len(tickets_in_group)} tickets)",
+            expanded=False
+        ):
+
+            # -----------------------------
+            # LLM Analysis (From JSON)
+            # -----------------------------
+            st.subheader("🧠 LLM Analysis")
+
+            if analysis:
+                st.markdown(f"### 📌 {analysis.get('group_label', 'No label')}")
+                st.markdown("**Summary**")
+                st.write(analysis.get("summary", ""))
+
+                if analysis.get("common_patterns"):
+                    st.markdown("**Common Patterns**")
+                    for item in analysis["common_patterns"]:
+                        st.write(f"- {item}")
+
+                if analysis.get("hypotheses"):
+                    st.markdown("**Hypotheses**")
+                    for item in analysis["hypotheses"]:
+                        st.write(f"- {item}")
+
+                if analysis.get("recommended_checks"):
+                    st.markdown("**Recommended Checks**")
+                    for item in analysis["recommended_checks"]:
+                        st.write(f"- {item}")
+            else:
+                st.warning("LLM analysis unavailable.")
+
+            # -----------------------------
+            # Tickets in Group
+            # -----------------------------
+            st.subheader("📄 Tickets in this group")
+
+            for ticket in tickets_in_group:
+                st.markdown("---")
+                st.text(ticket.get("display_text", "No display text"))
+
+
+# =====================================================
+# ONLINE MODE (Safer Version)
+# =====================================================
+else:
+
+    st.info("Running in ONLINE mode (OpenAI required)")
+
+    # Generate embeddings
     embedding_texts = [t["embedding_text"] for t in tickets]
     embeddings = embed_texts(embedding_texts)
 
-st.success("Embeddings generated")
-
-# -----------------------------
-# Grouping
-# -----------------------------
-with st.spinner(f"Grouping tickets (distance ≤ {MAX_DISTANCE})..."):
+    # Grouping
     groups, _ = group_by_similarity(embeddings, MAX_DISTANCE)
+    meaningful_groups = [g for g in groups if len(g) > 1]
 
-meaningful_groups = [g for g in groups if len(g) > 1]
+    st.success(f"Found {len(meaningful_groups)} meaningful groups")
 
-st.success(f"Found {len(meaningful_groups)} meaningful groups")
+    for idx, group in enumerate(meaningful_groups, start=1):
 
-# -----------------------------
-# Load Offline Results (CORRECT LOCATION)
-# -----------------------------
-offline_results = []
+        with st.expander(
+            f"📌 Group {idx} ({len(group)} tickets)",
+            expanded=False
+        ):
 
-if mode == "Offline (Pre-generated Results)":
-
-    project_root = Path(__file__).parent
-    offline_file = project_root / "data" / "offline" / "offline_results.json"
-
-    if not offline_file.exists():
-        st.error(f"offline_results.json not found at: {offline_file}")
-        st.stop()
-
-    with open(offline_file, "r") as f:
-        offline_results = json.load(f)
-
-# -----------------------------
-# Display Groups
-# -----------------------------
-for idx, group in enumerate(meaningful_groups, start=1):
-
-    with st.expander(f"📌 Group {idx} ({len(group)} tickets)", expanded=False):
-
-        st.subheader("🧠 LLM Analysis")
-
-        analysis = None
-
-        if mode == "Online (LLM Live)":
             descriptions = [
                 tickets[i]["embedding_text"]
                 for i in group[:MAX_DESCRIPTIONS_PER_GROUP]
             ]
-            with st.spinner("Analysing group with LLM..."):
+
+            # Safe LLM call
+            try:
                 analysis = analyse_group(descriptions)
+            except Exception as e:
+                st.error(f"LLM Error: {str(e)}")
+                analysis = None
 
-        else:
-            match = next(
-                (g for g in offline_results if g.get("group_number") == idx),
-                None
-            )
-            if match:
-                analysis = match.get("analysis")
+            # -----------------------------
+            # LLM Analysis (Live)
+            # -----------------------------
+            st.subheader("🧠 LLM Analysis")
 
-        # -----------------------------
-        # Structured Display
-        # -----------------------------
-        if analysis:
-            st.markdown(f"### 🔖 {analysis.get('group_label', 'No label')}")
+            if isinstance(analysis, dict) and "error" not in analysis:
+                st.markdown(f"### 📌 {analysis.get('group_label', 'No label')}")
+                st.markdown("**Summary**")
+                st.write(analysis.get("summary", ""))
 
-            st.markdown("**Summary**")
-            st.write(analysis.get("summary", ""))
+                if analysis.get("common_patterns"):
+                    st.markdown("**Common Patterns**")
+                    for item in analysis["common_patterns"]:
+                        st.write(f"- {item}")
 
-            st.markdown("**Common Patterns**")
-            for item in analysis.get("common_patterns", []):
-                st.write(f"- {item}")
+                if analysis.get("hypotheses"):
+                    st.markdown("**Hypotheses**")
+                    for item in analysis["hypotheses"]:
+                        st.write(f"- {item}")
 
-            st.markdown("**Hypotheses**")
-            for item in analysis.get("hypotheses", []):
-                st.write(f"- {item}")
+                if analysis.get("recommended_checks"):
+                    st.markdown("**Recommended Checks**")
+                    for item in analysis["recommended_checks"]:
+                        st.write(f"- {item}")
 
-            st.markdown("**Recommended Checks**")
-            for item in analysis.get("recommended_checks", []):
-                st.write(f"- {item}")
-        else:
-            st.warning("LLM analysis unavailable.")
+            elif isinstance(analysis, dict) and "error" in analysis:
+                st.error("LLM returned parsing error.")
+                st.text(analysis.get("raw_response", ""))
+            else:
+                st.warning("LLM analysis unavailable.")
 
-        # -----------------------------
-        # Ticket Details
-        # -----------------------------
-        st.subheader("📄 Tickets in this group")
-        for i in group:
-            st.markdown("---")
-            st.text(tickets[i]["display_text"])
+            # -----------------------------
+            # Tickets
+            # -----------------------------
+            st.subheader("📄 Tickets in this group")
 
-st.write("✅ App execution completed successfully")
+            for i in group:
+                st.markdown("---")
+                st.text(tickets[i]["display_text"])
