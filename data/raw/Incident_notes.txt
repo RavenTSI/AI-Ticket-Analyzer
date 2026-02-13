@@ -1,0 +1,6 @@
+Incident Notes – January
+
+Several authentication-related tickets were raised in early January.
+Most issues appeared during peak hours.
+Temporary restarts resolved symptoms but issues reoccurred.
+No clear root cause identified yet.
