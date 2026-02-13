@@ -1,8 +1,6 @@
-from openai import OpenAI
 import os
 import json
-
-client = OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
+from openai import OpenAI
 
 
 SYSTEM_PROMPT = """
@@ -24,7 +22,19 @@ Rules:
 
 
 def analyse_group(descriptions: list[str]) -> dict:
-    user_prompt = f"""
+    """
+    Analyse grouped ticket descriptions using LLM.
+    OpenAI client created only when this function runs.
+    """
+
+    api_key = os.getenv("OPENAI_API_KEY")
+
+    if not api_key:
+        raise RuntimeError("OPENAI_API_KEY not set. Cannot perform LLM analysis.")
+
+    client = OpenAI(api_key=api_key)
+
+    user_prompt = """
 Below is a group of incident descriptions that are semantically similar.
 
 Please provide the following in JSON format:
@@ -50,12 +60,7 @@ Incident descriptions:
         temperature=0.2
     )
 
-    content = response.choices[0].message.content.strip()
-
-    # Remove Markdown code fences if present
-    if content.startswith("```"):
-        content = content.strip("`")
-        content = content.replace("json", "", 1).strip()
+    content = response.choices[0].message.content
 
     try:
         return json.loads(content)
@@ -64,4 +69,3 @@ Incident descriptions:
             "error": "Failed to parse LLM response",
             "raw_response": content
         }
-
