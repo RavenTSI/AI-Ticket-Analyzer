@@ -1,5 +1,6 @@
 import streamlit as st
 import json
+import re
 from pathlib import Path
 from dotenv import load_dotenv
 
@@ -23,6 +24,29 @@ OFFLINE_RESULTS_PATH = Path("data/offline/offline_results.json")
 
 
 # -----------------------------
+# Responsible AI Sanitiser
+# -----------------------------
+def sanitize_text(text: str) -> str:
+    """
+    Removes sensitive information before sending to LLM.
+    """
+
+    # Emails
+    text = re.sub(r'\b[\w\.-]+@[\w\.-]+\.\w+\b', '[REDACTED_EMAIL]', text)
+
+    # IP Addresses
+    text = re.sub(r'\b(?:\d{1,3}\.){3}\d{1,3}\b', '[REDACTED_IP]', text)
+
+    # Server / Hostnames (basic pattern)
+    text = re.sub(r'\b(?:srv|server|host)[\w\-\.]*\b', '[REDACTED_HOST]', text, flags=re.IGNORECASE)
+
+    # Password-like fields
+    text = re.sub(r'password\s*[:=]\s*\S+', 'password=[REDACTED]', text, flags=re.IGNORECASE)
+
+    return text
+
+
+# -----------------------------
 # Page Setup
 # -----------------------------
 st.set_page_config(page_title="AI Ticket Analyzer", layout="wide")
@@ -35,7 +59,17 @@ st.title("🧠 AI Ticket Analyzer")
 mode = st.sidebar.selectbox(
     "Select Mode",
     ["Offline (Pre-generated Results)", "Online (Live OpenAI)"],
-    index=0  # Default always Offline
+    index=0
+)
+
+# -----------------------------
+# NEW: Minimum Group Size Slider
+# -----------------------------
+min_group_size = st.sidebar.slider(
+    "Minimum tickets required per group",
+    min_value=2,
+    max_value=10,
+    value=2
 )
 
 
@@ -63,7 +97,7 @@ st.success(f"Loaded {len(tickets)} tickets")
 
 
 # =====================================================
-# OFFLINE MODE  ✅ DO NOT TOUCH (WORKING SAFE)
+# OFFLINE MODE  ✅ DO NOT TOUCH STRUCTURE
 # =====================================================
 if mode == "Offline (Pre-generated Results)":
 
@@ -78,7 +112,11 @@ if mode == "Offline (Pre-generated Results)":
         st.error("offline_results.json format invalid.")
         st.stop()
 
-    meaningful_groups = offline_results
+    # Apply minimum group size filter
+    meaningful_groups = [
+        g for g in offline_results
+        if len(g.get("tickets", [])) >= min_group_size
+    ]
 
     st.success(f"Found {len(meaningful_groups)} meaningful groups")
 
@@ -93,9 +131,6 @@ if mode == "Offline (Pre-generated Results)":
             expanded=False
         ):
 
-            # -----------------------------
-            # LLM Analysis (From JSON)
-            # -----------------------------
             st.subheader("🧠 LLM Analysis")
 
             if analysis:
@@ -120,9 +155,6 @@ if mode == "Offline (Pre-generated Results)":
             else:
                 st.warning("LLM analysis unavailable.")
 
-            # -----------------------------
-            # Tickets in Group
-            # -----------------------------
             st.subheader("📄 Tickets in this group")
 
             for ticket in tickets_in_group:
@@ -131,19 +163,21 @@ if mode == "Offline (Pre-generated Results)":
 
 
 # =====================================================
-# ONLINE MODE (Safer Version)
+# ONLINE MODE
 # =====================================================
 else:
 
     st.info("Running in ONLINE mode (OpenAI required)")
 
-    # Generate embeddings
     embedding_texts = [t["embedding_text"] for t in tickets]
     embeddings = embed_texts(embedding_texts)
 
-    # Grouping
-    groups, _ = group_by_similarity(embeddings, MAX_DISTANCE)
-    meaningful_groups = [g for g in groups if len(g) > 1]
+    groups, _ = group_by_similarity(embeddings, tickets, MAX_DISTANCE)
+
+    meaningful_groups = [
+        g for g in groups
+        if len(g) >= min_group_size
+    ]
 
     st.success(f"Found {len(meaningful_groups)} meaningful groups")
 
@@ -154,21 +188,18 @@ else:
             expanded=False
         ):
 
+            # Apply sanitisation BEFORE sending to LLM
             descriptions = [
-                tickets[i]["embedding_text"]
+                sanitize_text(tickets[i]["embedding_text"])
                 for i in group[:MAX_DESCRIPTIONS_PER_GROUP]
             ]
 
-            # Safe LLM call
             try:
                 analysis = analyse_group(descriptions)
             except Exception as e:
                 st.error(f"LLM Error: {str(e)}")
                 analysis = None
 
-            # -----------------------------
-            # LLM Analysis (Live)
-            # -----------------------------
             st.subheader("🧠 LLM Analysis")
 
             if isinstance(analysis, dict) and "error" not in analysis:
@@ -197,9 +228,6 @@ else:
             else:
                 st.warning("LLM analysis unavailable.")
 
-            # -----------------------------
-            # Tickets
-            # -----------------------------
             st.subheader("📄 Tickets in this group")
 
             for i in group:
